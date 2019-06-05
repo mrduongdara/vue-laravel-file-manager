@@ -4,7 +4,7 @@
             <p class="unselectable"
                v-bind:class="{'selected': isDirectorySelected(directory.path)}"
                v-on:click="selectDirectory(directory.path)">
-                <i class="far"
+                <i class="material-icons"
                    v-if="directory.props.hasSubdirectories"
                    v-on:click.stop="showSubdirectories(
                         directory.path,
@@ -14,7 +14,7 @@
                     ? 'fa-minus-square'
                     : 'fa-plus-square'
                    ]"></i>
-                <i class="fas fa-minus fa-xs" v-else></i>
+                <i class="material-icons" v-else>remove</i>
                 {{ directory.basename }}
             </p>
 

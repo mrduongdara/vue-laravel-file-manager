@@ -69,7 +69,7 @@
                     <button v-on:click="setData()"
                             v-bind:title="lang.modal.cropper.apply"
                             type="button" class="btn btn-block btn-sm btn-info mb-2">
-                        <i class="fas fa-check"></i>
+                        <i class="material-icons">check</i>
                     </button>
                 </div>
             </div>
@@ -78,47 +78,47 @@
             <div>
                 <div class="btn-group mr-2" role="group" aria-label="Scale">
                     <button v-on:click="cropMove(-10, 0)" class="btn btn-info">
-                        <i class="fas fa-arrow-left"></i>
+                        <i class="material-icons">arrow_back</i>
                     </button>
                     <button v-on:click="cropMove(10, 0)" class="btn btn-info">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="material-icons">arrow_forward</i>
                     </button>
                     <button v-on:click="cropMove(0, -10)" class="btn btn-info">
-                        <i class="fas fa-arrow-up"></i>
+                        <i class="material-icons">arrow_upward</i>
                     </button>
                     <button v-on:click="cropMove(0, 10)" class="btn btn-info">
-                        <i class="fas fa-arrow-down"></i>
+                        <i class="material-icons">arrow_downward</i>
                     </button>
                 </div>
                 <div class="btn-group mr-2" role="group" aria-label="Scale">
                     <button v-on:click="cropScaleX()" class="btn btn-info">
-                        <i class="fas fa-arrows-alt-h"></i>
+                        <i class="material-icons">swap_horiz</i>
                     </button>
                     <button v-on:click="cropScaleY()" class="btn btn-info">
-                        <i class="fas fa-arrows-alt-v"></i>
+                        <i class="material-icons">swap_vert</i>
                     </button>
                 </div>
                 <div class="btn-group mr-2" role="group" aria-label="Rotate">
                     <button v-on:click="cropRotate(-45)" class="btn btn-info">
-                        <i class="fas fa-undo"></i>
+                        <i class="material-icons">undo</i>
                     </button>
                     <button v-on:click="cropRotate(45)" class="btn btn-info">
-                        <i class="fas fa-redo"></i>
+                        <i class="material-icons">redo</i>
                     </button>
                 </div>
                 <div class="btn-group mr-2" role="group" aria-label="Rotate">
                     <button v-on:click="cropZoom(0.1)" class="btn btn-info">
-                        <i class="fas fa-search-plus"></i>
+                        <i class="material-icons">zoom_in</i>
                     </button>
                     <button v-on:click="cropZoom(-0.1)" class="btn btn-info">
-                        <i class="fas fa-search-minus"></i>
+                        <i class="material-icons">zoom_out</i>
                     </button>
                 </div>
                 <button v-on:click="cropReset()" v-bind:title="lang.modal.cropper.reset" class="btn btn-info mr-2">
-                    <i class="fas fa-sync-alt"></i>
+                    <i class="material-icons">crop_rotate</i>
                 </button>
                 <button v-on:click="cropSave()" v-bind:title="lang.modal.cropper.save" class="btn btn-danger mr-2">
-                    <i class="far fa-save"></i>
+                    <i class="material-icons">save</i>
                 </button>
             </div>
             <span class="d-block">

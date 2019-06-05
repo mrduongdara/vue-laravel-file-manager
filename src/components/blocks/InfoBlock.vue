@@ -25,17 +25,27 @@
         </div>
         <div class="col-auto text-right">
             <span v-show="loadingSpinner">
-                <i class="fas fa-spinner fa-pulse"></i>
+                <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-green-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
             </span>
             <span v-show="clipboardType"
                   v-on:click="showModal('Clipboard')"
                   v-bind:title="[ lang.clipboard.title + ' - ' + lang.clipboard[clipboardType] ]">
-                <i class="far fa-clipboard"></i>
+                <i class="material-icons">content_copy</i>
             </span>
             <span v-on:click="showModal('Status')"
                   v-bind:class="[hasErrors ? 'text-danger' : 'text-success']"
                   v-bind:title="lang.modal.status.title">
-                <i class="fas fa-info-circle"></i>
+                <i class="material-icons">info</i>
             </span>
         </div>
     </div>

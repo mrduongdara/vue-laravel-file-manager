@@ -11,13 +11,13 @@
                 <div class="d-flex justify-content-between">
                     <div class="w-75 text-truncate">
                         <span>
-                           <i class="far fa-hdd"></i>{{ clipboard.disk }}
+                           <i class="material-icons">storage</i>{{ clipboard.disk }}
                         </span>
                     </div>
                     <div class="text-right text-muted">
                         <span v-bind:title="`${lang.clipboard.actionType} - ${lang.clipboard[clipboard.type]}`">
-                            <i v-if="clipboard.type === 'copy'" class="fas fa-copy"></i>
-                            <i v-else class="fas fa-cut"></i>
+                            <i v-if="clipboard.type === 'copy'" class="material-icons">copy</i>
+                            <i v-else class="material-icons">content_cut</i>
                         </span>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                      v-bind:key="`d-${index}`">
                     <div class="w-75 text-truncate">
                         <span>
-                            <i class="far fa-folder"></i>{{ dir.name }}
+                            <i class="material-icons">folder</i>{{ dir.name }}
                         </span>
                     </div>
                     <div class="text-right">
@@ -43,7 +43,7 @@
                      v-bind:key="`f-${index}`">
                     <div class="w-75 text-truncate">
                         <span>
-                            <i class="far" v-bind:class="file.icon"></i>{{ file.name }}
+                            <i class="material-icons" v-bind:class="file.icon"></i>{{ file.name }}
                         </span>
                     </div>
                     <div class="text-right">

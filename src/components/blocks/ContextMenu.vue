@@ -12,7 +12,7 @@
                 v-bind:key="`i-${index}`"
                 v-if="showMenuItem(item.name)"
                 v-on:click="menuAction(item.name)">
-                <i class="fa-fw" v-bind:class="item.icon"></i>
+                <i class="material-icons-fw" v-bind:class="item.icon"></i>
                 {{ lang.contextMenu[item.name] }}
             </li>
         </ul>

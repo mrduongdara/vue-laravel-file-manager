@@ -25,7 +25,7 @@
             <span class="d-block">
                 <button class="btn btn-info"
                         v-bind:title="lang.modal.cropper.title" v-on:click="showCropperModule = true">
-                    <i class="fas fa-crop-alt"></i>
+                    <i class="material-icons">crop</i>
                 </button>
             </span>
             <span class="d-block">

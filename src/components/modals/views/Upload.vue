@@ -18,7 +18,7 @@
                      v-for="(item, index) in newFiles"
                      v-bind:key="index">
                     <div class="w-75 text-truncate">
-                        <i class="far" v-bind:class="mimeToIcon(item.type)"></i>
+                        <i class="material-icons" v-bind:class="mimeToIcon(item.type)"></i>
                         {{ item.name }}
                     </div>
                     <div class="text-right">

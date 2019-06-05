@@ -5,10 +5,10 @@
              v-bind:key="index">
             <div class="w-75 text-truncate">
                 <span v-if="item.type === 'dir'">
-                    <i class="far fa-folder"></i>{{ item.basename }}
+                    <i class="material-icons">folder</i>{{ item.basename }}
                 </span>
                 <span v-else>
-                    <i class="far" v-bind:class="extensionToIcon(item.extension)"></i> {{ item.basename }}
+                    <i class="material-icons" v-bind:class="extensionToIcon(item.extension)"></i> {{ item.basename }}
                 </span>
             </div>
             <div class="text-right" v-if="item.type === 'file'">

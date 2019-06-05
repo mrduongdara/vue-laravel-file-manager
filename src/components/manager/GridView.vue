@@ -3,7 +3,7 @@
         <div class="d-flex align-content-start flex-wrap">
             <div v-if="!isRootPath" v-on:click="levelUp" class="fm-grid-item text-center" >
                 <div class="fm-item-icon">
-                    <i class="fas fa-level-up-alt fa-5x pb-2"></i>
+                    <i class="material-icons fa-level-up-alt fa-5x pb-2"></i>
                 </div>
                 <div class="fm-item-info"><strong>..</strong></div>
             </div>
@@ -17,7 +17,7 @@
                  v-on:dblclick.stop="selectDirectory(directory.path)"
                  v-on:contextmenu.prevent="contextMenu(directory, $event)">
                 <div class="fm-item-icon">
-                    <i class="fa-5x pb-2"
+                    <i class="material-icons-5x pb-2"
                        v-bind:class="(acl && directory.acl === 0) ? 'fas fa-unlock-alt' : 'far fa-folder'"></i>
                 </div>
                 <div class="fm-item-info">{{ directory.basename }}</div>
@@ -33,7 +33,7 @@
                  v-on:contextmenu.prevent="contextMenu(file, $event)">
                 <div class="fm-item-icon">
                     <template v-if="acl && file.acl === 0">
-                        <i class="fas fa-unlock-alt fa-5x pb-2"></i>
+                        <i class="material-icons fa-unlock-alt fa-5x pb-2"></i>
                     </template>
                     <template v-else-if="thisImage(file.extension)">
                         <img class="img-thumbnail"
@@ -41,7 +41,7 @@
                              v-bind:src="createImgUrl(file.path, file.timestamp)">
                     </template>
                     <template v-else>
-                        <i class="far fa-5x pb-2"
+                        <i class="material-icons fa-5x pb-2"
                            v-bind:class="extensionToIcon(file.extension)"></i>
                     </template>
                 </div>

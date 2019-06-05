@@ -6,36 +6,36 @@
                     <th class="w-65" v-on:click="sortBy('name')">
                         {{ lang.manager.table.name }}
                         <template v-if="sortSettings.field === 'name'">
-                            <i class="fas fa-sort-amount-down"
+                            <i class="material-icons fa-sort-amount-down"
                                v-show="sortSettings.direction === 'down'"></i>
-                            <i class="fas fa-sort-amount-up"
+                            <i class="material-icons fa-sort-amount-up"
                                v-show="sortSettings.direction === 'up'"></i>
                         </template>
                     </th>
                     <th class="w-10" v-on:click="sortBy('size')">
                         {{ lang.manager.table.size }}
                         <template v-if="sortSettings.field === 'size'">
-                            <i class="fas fa-sort-amount-down"
+                            <i class="material-icons fa-sort-amount-down"
                                v-show="sortSettings.direction === 'down'"></i>
-                            <i class="fas fa-sort-amount-up"
+                            <i class="material-icons fa-sort-amount-up"
                                v-show="sortSettings.direction === 'up'"></i>
                         </template>
                     </th>
                     <th class="w-10" v-on:click="sortBy('type')">
                         {{ lang.manager.table.type }}
                         <template v-if="sortSettings.field === 'type'">
-                            <i class="fas fa-sort-amount-down"
+                            <i class="material-icons fa-sort-amount-down"
                                v-show="sortSettings.direction === 'down'"></i>
-                            <i class="fas fa-sort-amount-up"
+                            <i class="material-icons fa-sort-amount-up"
                                v-show="sortSettings.direction === 'up'"></i>
                         </template>
                     </th>
                     <th v-on:click="sortBy('date')">
                         {{ lang.manager.table.date }}
                         <template v-if="sortSettings.field === 'date'">
-                            <i class="fas fa-sort-amount-down"
+                            <i class="material-icons fa-sort-amount-down"
                                v-show="sortSettings.direction === 'down'"></i>
-                            <i class="fas fa-sort-amount-up"
+                            <i class="material-icons fa-sort-amount-up"
                                v-show="sortSettings.direction === 'up'"></i>
                         </template>
                     </th>
@@ -44,7 +44,7 @@
             <tbody>
                 <tr v-if="!isRootPath">
                     <td colspan="4" class="fm-content-item" v-on:click="levelUp">
-                        <i class="fas fa-level-up-alt"></i>
+                        <i class="material-icons fa-level-up-alt"></i>
                     </td>
                 </tr>
                 <tr v-for="(directory, index) in directories"
@@ -55,7 +55,7 @@
                     <td class="fm-content-item unselectable"
                         v-bind:class="(acl && directory.acl === 0) ? 'text-hidden' : ''"
                         v-on:dblclick="selectDirectory(directory.path)">
-                        <i class="far fa-folder"></i> {{ directory.basename }}
+                        <i class="material-icons fa-folder"></i> {{ directory.basename }}
                     </td>
                     <td></td>
                     <td>{{ lang.manager.table.folder }}</td>
@@ -71,7 +71,7 @@
                     v-on:contextmenu.prevent="contextMenu(file, $event)">
                     <td class="fm-content-item unselectable"
                         v-bind:class="(acl && file.acl === 0) ? 'text-hidden' : ''">
-                        <i class="far"
+                        <i class="material-icons"
                            v-bind:class="extensionToIcon(file.extension)"></i>
                         {{ file.filename ? file.filename : file.basename }}
                     </td>

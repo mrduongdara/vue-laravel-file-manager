@@ -21,15 +21,15 @@
                 </div>
                 <template v-if="playingIndex === index">
                     <div v-if="status === 'playing'">
-                        <i v-on:click="togglePlay()" class="fas fa-play active"></i>
+                        <i v-on:click="togglePlay()" class="material-icons active">play_circle_filled</i>
                     </div>
                     <div v-else>
-                        <i v-on:click="togglePlay()" class="fas fa-pause"></i>
+                        <i v-on:click="togglePlay()" class="material-icons">pause</i>
                     </div>
                 </template>
                 <template v-else>
                     <div>
-                        <i v-on:click="selectTrack(index)" class="fas fa-play"></i>
+                        <i v-on:click="selectTrack(index)" class="material-icons">play_arrow</i>
                     </div>
                 </template>
             </div>
