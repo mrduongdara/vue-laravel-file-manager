@@ -1,13 +1,13 @@
 {
-  "name": "laravel-file-manager",
-  "version": "2.3.1",
+  "name": "md-vue-laravel-file-manager",
+  "version": "2.3.4",
   "description": "File manager for Laravel",
   "keywords": [
     "laravel",
     "file",
     "manager"
   ],
-  "author": "Aleksandr Manekin <alexusmai@gmail.com>",
+  "author": "Duong Dara <mrduongdara@gmail.com>",
   "private": false,
   "license": "MIT",
   "main": "src/init.js",
@@ -39,5 +39,16 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrduongdara/vue-laravel-file-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrduongdara/vue-laravel-file-manager/issues"
+  },
+  "homepage": "https://github.com/mrduongdara/vue-laravel-file-manager#readme"
 }
