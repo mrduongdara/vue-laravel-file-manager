@@ -1,21 +1,18 @@
 <template>
     <div class="modal-content fm-modal-text-edit">
-        <div class="modal-header">
-            <h5 class="modal-title w-75 text-truncate">
+        <v-card-title class="headline">
+            
                 {{ lang.modal.editor.title }} <small class="text-muted pl-3">{{ selectedItem.basename }}</small>
-            </h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+            
+        </v-card-title>
+        <v-card-text>
             <codemirror ref="fmCodeEditor" v-model="code" :options="cmOptions"></codemirror>
-        </div>
+        </v-card-text>
         <div class="modal-footer">
-            <button class="btn btn-info"
+            <v-btn flat icon class=""
                     v-on:click="updateFile">{{ lang.btn.submit }}
-            </button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
+            </v-btn>
+            <v-btn flat icon class="btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
         </div>
     </div>
 </template>

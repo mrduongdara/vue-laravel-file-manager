@@ -4,17 +4,11 @@
             <p class="unselectable"
                v-bind:class="{'selected': isDirectorySelected(directory.path)}"
                v-on:click="selectDirectory(directory.path)">
-                <i class="material-icons"
-                   v-if="directory.props.hasSubdirectories"
-                   v-on:click.stop="showSubdirectories(
-                        directory.path,
-                        directory.props.showSubdirectories
-                      )"
-                   v-bind:class="[arrowState(index)
-                    ? 'fa-minus-square'
-                    : 'fa-plus-square'
-                   ]"></i>
-                <i class="material-icons" v-else>remove</i>
+                <v-icon
+                v-if="directory.props.hasSubdirectories"
+                v-on:click.stop="showSubdirectories(directory.path,directory.props.showSubdirectories)"
+                ></v-icon>
+                <v-icon v-else>remove</v-icon>
                 {{ directory.basename }}
             </p>
 
@@ -96,6 +90,7 @@ export default {
         display: table;
         width: 100%;
         padding-left: 1.4rem;
+        list-style: none;
 
         li > p{
             margin-bottom: 0.1rem;

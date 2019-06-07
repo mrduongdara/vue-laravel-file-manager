@@ -1,14 +1,11 @@
 <template>
     <div class="modal-content fm-modal-audio-player">
-        <div class="modal-header">
-            <h5 class="modal-title">
+        <v-card-title class="headline">
+            
                 {{ lang.modal.audioPlayer.title }}
-            </h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+            
+        </v-card-title>
+        <v-card-text>
             <audio ref="fmAudio" controls></audio>
             <hr>
             <div class="d-flex justify-content-between py-2 px-2"
@@ -33,7 +30,7 @@
                     </div>
                 </template>
             </div>
-        </div>
+        </v-card-text>
     </div>
 </template>
 

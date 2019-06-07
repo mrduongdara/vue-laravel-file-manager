@@ -3,7 +3,7 @@
         <div class="d-flex align-content-start flex-wrap">
             <div v-if="!isRootPath" v-on:click="levelUp" class="fm-grid-item text-center" >
                 <div class="fm-item-icon">
-                    <i class="material-icons fa-level-up-alt fa-5x pb-2"></i>
+                    <i class="material-icons">trending_down</i>
                 </div>
                 <div class="fm-item-info"><strong>..</strong></div>
             </div>
@@ -33,7 +33,7 @@
                  v-on:contextmenu.prevent="contextMenu(file, $event)">
                 <div class="fm-item-icon">
                     <template v-if="acl && file.acl === 0">
-                        <i class="material-icons fa-unlock-alt fa-5x pb-2"></i>
+                        <i class="material-icons">lock_open</i>
                     </template>
                     <template v-else-if="thisImage(file.extension)">
                         <img class="img-thumbnail"
@@ -118,6 +118,7 @@ export default {
 <style lang="scss">
     .fm-grid {
         padding-top: 1rem;
+        background: #ffffff;
 
         .fm-grid-item {
             position: relative;

@@ -1,14 +1,14 @@
 <template>
-        <div class="fm-notification">
-            <transition-group name="notify">
-                <div class="fm-notification-item" role="alert"
-                     v-for="(notification, index) in notifications"
-                     v-bind:class="`fm-${notification.status}`"
-                     v-bind:key="`notify-${index}`">
-                    {{ notification.message }}
-                </div>
-            </transition-group>
-        </div>
+  <div class="fm-notification">
+      <transition-group name="notify">
+          <div class="fm-notification-item" role="alert"
+                v-for="(notification, index) in notifications"
+                v-bind:class="`fm-${notification.status}`"
+                v-bind:key="`notify-${index}`">
+              {{ notification.message }}
+          </div>
+      </transition-group>
+  </div>
 </template>
 
 <script>

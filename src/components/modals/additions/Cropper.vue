@@ -1,12 +1,12 @@
 <template>
     <div class="fm-additions-cropper">
         <div class="row" v-bind:style="{'max-height': maxHeight+'px'}">
-            <div class="col-sm-9 cropper-block">
+            <div class="col s9 cropper-block">
                 <img v-bind:src="imgUrl"
                      ref="fmCropper"
                      v-bind:alt="selectedItem.basename">
             </div>
-            <div class="col-sm-3 pl-0">
+            <div class="col s3 pl-0">
                 <div class="cropper-preview"></div>
                 <div class="cropper-data">
                     <div class="input-group input-group-sm">
@@ -66,63 +66,63 @@
                         </span>
                         <input v-model.number="scaleY" type="text" class="form-control" id="dataScaleY">
                     </div>
-                    <button v-on:click="setData()"
+                    <v-btn flat icon v-on:click="setData()"
                             v-bind:title="lang.modal.cropper.apply"
-                            type="button" class="btn btn-block btn-sm btn-info mb-2">
+                            type="button" class="btn-block btn-sm  mb-2">
                         <i class="material-icons">check</i>
-                    </button>
+                    </v-btn>
                 </div>
             </div>
         </div>
         <div class="d-flex justify-content-between">
             <div>
-                <div class="btn-group mr-2" role="group" aria-label="Scale">
-                    <button v-on:click="cropMove(-10, 0)" class="btn btn-info">
+                <div class="left mr-2" role="group" aria-label="Scale">
+                    <v-btn flat icon v-on:click="cropMove(-10, 0)" class="">
                         <i class="material-icons">arrow_back</i>
-                    </button>
-                    <button v-on:click="cropMove(10, 0)" class="btn btn-info">
+                    </v-btn>
+                    <v-btn flat icon v-on:click="cropMove(10, 0)" class="">
                         <i class="material-icons">arrow_forward</i>
-                    </button>
-                    <button v-on:click="cropMove(0, -10)" class="btn btn-info">
+                    </v-btn>
+                    <v-btn flat icon v-on:click="cropMove(0, -10)" class="">
                         <i class="material-icons">arrow_upward</i>
-                    </button>
-                    <button v-on:click="cropMove(0, 10)" class="btn btn-info">
+                    </v-btn>
+                    <v-btn flat icon v-on:click="cropMove(0, 10)" class="">
                         <i class="material-icons">arrow_downward</i>
-                    </button>
+                    </v-btn>
                 </div>
-                <div class="btn-group mr-2" role="group" aria-label="Scale">
-                    <button v-on:click="cropScaleX()" class="btn btn-info">
+                <div class="left mr-2" role="group" aria-label="Scale">
+                    <v-btn flat icon v-on:click="cropScaleX()" class="">
                         <i class="material-icons">swap_horiz</i>
-                    </button>
-                    <button v-on:click="cropScaleY()" class="btn btn-info">
+                    </v-btn>
+                    <v-btn flat icon v-on:click="cropScaleY()" class="">
                         <i class="material-icons">swap_vert</i>
-                    </button>
+                    </v-btn>
                 </div>
-                <div class="btn-group mr-2" role="group" aria-label="Rotate">
-                    <button v-on:click="cropRotate(-45)" class="btn btn-info">
+                <div class="left mr-2" role="group" aria-label="Rotate">
+                    <v-btn flat icon v-on:click="cropRotate(-45)" class="">
                         <i class="material-icons">undo</i>
-                    </button>
-                    <button v-on:click="cropRotate(45)" class="btn btn-info">
+                    </v-btn>
+                    <v-btn flat icon v-on:click="cropRotate(45)" class="">
                         <i class="material-icons">redo</i>
-                    </button>
+                    </v-btn>
                 </div>
-                <div class="btn-group mr-2" role="group" aria-label="Rotate">
-                    <button v-on:click="cropZoom(0.1)" class="btn btn-info">
+                <div class="left mr-2" role="group" aria-label="Rotate">
+                    <v-btn flat icon v-on:click="cropZoom(0.1)" class="">
                         <i class="material-icons">zoom_in</i>
-                    </button>
-                    <button v-on:click="cropZoom(-0.1)" class="btn btn-info">
+                    </v-btn>
+                    <v-btn flat icon v-on:click="cropZoom(-0.1)" class="">
                         <i class="material-icons">zoom_out</i>
-                    </button>
+                    </v-btn>
                 </div>
-                <button v-on:click="cropReset()" v-bind:title="lang.modal.cropper.reset" class="btn btn-info mr-2">
+                <v-btn flat icon v-on:click="cropReset()" v-bind:title="lang.modal.cropper.reset" class=" mr-2">
                     <i class="material-icons">crop_rotate</i>
-                </button>
-                <button v-on:click="cropSave()" v-bind:title="lang.modal.cropper.save" class="btn btn-danger mr-2">
+                </v-btn>
+                <v-btn flat icon v-on:click="cropSave()" v-bind:title="lang.modal.cropper.save" class="red mr-2">
                     <i class="material-icons">save</i>
-                </button>
+                </v-btn>
             </div>
             <span class="d-block">
-                <button v-on:click="$emit('closeCropper')" class="btn btn-default">{{ lang.btn.back }}</button>
+                <v-btn flat icon v-on:click="$emit('closeCropper')" class="btn-default">{{ lang.btn.back }}</v-btn>
             </span>
         </div>
     </div>
@@ -284,7 +284,7 @@ export default {
             }
         }
 
-        .col-sm-3 {
+        .col.s3 {
             overflow: auto;
 
             &::-webkit-scrollbar {

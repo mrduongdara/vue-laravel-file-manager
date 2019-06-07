@@ -9,3 +9,4 @@ the purpose is replace bootstrap design with materialize design
 ```
 $ npm i md-vue-laravel-file-manager --save
 ```
+this frontend package is required backend https://github.com/alexusmai/laravel-file-manager

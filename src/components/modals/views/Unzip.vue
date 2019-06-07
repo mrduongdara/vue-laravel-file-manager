@@ -1,12 +1,9 @@
 <template>
     <div class="modal-content fm-modal-unzip">
-        <div class="modal-header">
-            <h5 class="modal-title">{{ lang.modal.unzip.title }}</h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+        <v-card-title class="headline">
+            {{ lang.modal.unzip.title }}
+        </v-card-title>
+        <v-card-text>
             <div class="d-flex justify-content-between">
                 <div>
                     <strong>{{ lang.modal.unzip.fieldRadioName }}</strong>
@@ -49,14 +46,12 @@
                 </div>
             </div>
             <span v-else class="text-danger">{{ lang.modal.unzip.warning }}</span>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-info"
-                    v-bind:disabled="!submitActive"
-                    v-on:click="unpackArchive">{{ lang.btn.submit }}
-            </button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
-        </div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
+          <v-btn color="blue darken-1" flat v-bind:disabled="!submitActive" v-on:click="unpackArchive">{{ lang.btn.submit }}</v-btn>
+        </v-card-actions>
     </div>
 </template>
 

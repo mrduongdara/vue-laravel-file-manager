@@ -1,5 +1,5 @@
 <template>
-    <div class="fm-breadcrumb">
+    <v-flex fm-breadcrumb>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb"
                 v-bind:class="[manager === activeManager ? 'active-manager' : 'bg-light']">
@@ -13,11 +13,12 @@
                     v-bind:key="index"
                     v-bind:class="[breadcrumb.length === index + 1 ? 'active' : '']"
                     v-on:click="selectDirectory(index)">
-                    <span>{{ item }}</span>
+                    / <span>{{ item }}</span>
                 </li>
             </ol>
         </nav>
-    </div>
+        <v-spacer></v-spacer>
+    </v-flex>
 </template>
 
 <script>
@@ -88,16 +89,21 @@ export default {
 
 <style lang="scss">
     .fm-breadcrumb {
-
+        padding: 0 8px;
         .breadcrumb {
             flex-wrap: nowrap;
             padding: 0.2rem 0.3rem;
             margin-bottom: 0.5rem;
+            list-style: none;
+            display: flex;
+    align-items: center;
 
             &.active-manager {
                 background-color: #c2e5eb;
             }
-
+.breadcrumb-item {
+  margin-left: 5px;
+}
             .breadcrumb-item:not(.active):hover {
                 cursor: pointer;
                 font-weight: normal;

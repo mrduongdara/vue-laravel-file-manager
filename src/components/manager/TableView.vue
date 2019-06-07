@@ -6,37 +6,37 @@
                     <th class="w-65" v-on:click="sortBy('name')">
                         {{ lang.manager.table.name }}
                         <template v-if="sortSettings.field === 'name'">
-                            <i class="material-icons fa-sort-amount-down"
-                               v-show="sortSettings.direction === 'down'"></i>
-                            <i class="material-icons fa-sort-amount-up"
-                               v-show="sortSettings.direction === 'up'"></i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'down'">arrow_drop_down</i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'up'">arrow_drop_up</i>
                         </template>
                     </th>
                     <th class="w-10" v-on:click="sortBy('size')">
                         {{ lang.manager.table.size }}
                         <template v-if="sortSettings.field === 'size'">
-                            <i class="material-icons fa-sort-amount-down"
-                               v-show="sortSettings.direction === 'down'"></i>
-                            <i class="material-icons fa-sort-amount-up"
-                               v-show="sortSettings.direction === 'up'"></i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'down'">arrow_drop_down</i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'up'">arrow_drop_up</i>
                         </template>
                     </th>
                     <th class="w-10" v-on:click="sortBy('type')">
                         {{ lang.manager.table.type }}
                         <template v-if="sortSettings.field === 'type'">
-                            <i class="material-icons fa-sort-amount-down"
-                               v-show="sortSettings.direction === 'down'"></i>
-                            <i class="material-icons fa-sort-amount-up"
-                               v-show="sortSettings.direction === 'up'"></i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'down'">arrow_drop_down</i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'up'">arrow_drop_up</i>
                         </template>
                     </th>
                     <th v-on:click="sortBy('date')">
                         {{ lang.manager.table.date }}
                         <template v-if="sortSettings.field === 'date'">
-                            <i class="material-icons fa-sort-amount-down"
-                               v-show="sortSettings.direction === 'down'"></i>
-                            <i class="material-icons fa-sort-amount-up"
-                               v-show="sortSettings.direction === 'up'"></i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'down'">arrow_drop_down</i>
+                            <i class="material-icons"
+                               v-show="sortSettings.direction === 'up'">arrow_drop_up</i>
                         </template>
                     </th>
                 </tr>
@@ -44,7 +44,7 @@
             <tbody>
                 <tr v-if="!isRootPath">
                     <td colspan="4" class="fm-content-item" v-on:click="levelUp">
-                        <i class="material-icons fa-level-up-alt"></i>
+                        <i class="material-icons">trending_down</i>
                     </td>
                 </tr>
                 <tr v-for="(directory, index) in directories"
@@ -55,7 +55,7 @@
                     <td class="fm-content-item unselectable"
                         v-bind:class="(acl && directory.acl === 0) ? 'text-hidden' : ''"
                         v-on:dblclick="selectDirectory(directory.path)">
-                        <i class="material-icons fa-folder"></i> {{ directory.basename }}
+                        <span class="folder-item"><v-icon>folder</v-icon> {{ directory.basename }}</span>
                     </td>
                     <td></td>
                     <td>{{ lang.manager.table.folder }}</td>
@@ -122,7 +122,9 @@ export default {
 
 <style lang="scss">
     .fm-table {
-
+        width: 100%;
+        background: #ffffff;
+        
         thead th{
             background: white;
             position: sticky;
@@ -130,6 +132,7 @@ export default {
             z-index: 10;
             cursor: pointer;
             border-top: none;
+            text-align: left;
 
             &:hover {
                 background-color: #f8f9fa;
@@ -143,6 +146,7 @@ export default {
         td {
             white-space: nowrap;
             overflow: hidden;
+            border-bottom: 1px solid #f7f7f7;
         }
 
         tr:hover {
@@ -163,6 +167,10 @@ export default {
 
         .text-hidden {
             color: #cdcdcd;
+        }
+        .folder-item {
+            line-height: 1.8;
+            vertical-align: bottom;
         }
     }
 </style>

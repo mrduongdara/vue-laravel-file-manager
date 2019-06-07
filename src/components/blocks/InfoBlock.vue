@@ -1,6 +1,6 @@
 <template>
-    <div class="justify-content-between fm-info-block">
-        <div class="col-auto">
+    <v-layout finder-info-bar>
+        <v-flex s4>
             <span v-show="selectedCount">
                 {{ `${lang.info.selected} ${selectedCount}` }}
                 {{ `${lang.info.selectedSize} ${selectedFilesSize}` }}
@@ -10,8 +10,8 @@
                 {{ `${lang.info.files} ${filesCount}` }}
                 {{ `${lang.info.size} ${filesSize}`}}
             </span>
-        </div>
-        <div class="col-4">
+        </v-flex>
+        <v-flex s4>
             <!-- Progress Bar -->
             <div class="progress" v-show="progressBar">
                 <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
@@ -22,8 +22,8 @@
                     {{ progressBar }}%
                 </div>
             </div>
-        </div>
-        <div class="col-auto text-right">
+        </v-flex>
+        <v-flex right text-sm-right s4>
             <span v-show="loadingSpinner">
                 <div class="preloader-wrapper small active">
                 <div class="spinner-layer spinner-green-only">
@@ -47,8 +47,8 @@
                   v-bind:title="lang.modal.status.title">
                 <i class="material-icons">info</i>
             </span>
-        </div>
-    </div>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>
@@ -155,21 +155,9 @@ export default {
 </script>
 
 <style lang="scss">
-    .fm-info-block {
-        display: flex;
-        margin-right: -15px;
-        margin-left: -15px;
-        padding-top: 0.2rem;
-        padding-bottom: 0.4rem;
-        border-bottom: 1px solid #6d757d;
-
-        .progress {
-            margin-top: 0.3rem;
-        }
-
-        .text-right > span {
-            padding-left: 0.5rem;
-            cursor: pointer;
-        }
+    .finder-info-bar {
+      padding: 8px;
+      background: #ffffff;
+      border-top: 1px solid #dddddd
     }
 </style>

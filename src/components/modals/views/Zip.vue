@@ -1,12 +1,9 @@
 <template>
     <div class="modal-content fm-modal-zip">
-        <div class="modal-header">
-            <h5 class="modal-title">{{ lang.modal.zip.title }}</h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+        <v-card-title class="headline">
+            {{ lang.modal.zip.title }}
+        </v-card-title>
+        <v-card-text>
             <label for="fm-zip-name">{{ lang.modal.zip.fieldName }}</label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="fm-zip-name"
@@ -23,14 +20,12 @@
             </div>
             <hr>
             <selected-file-list></selected-file-list>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-info"
-                    v-bind:disabled="!submitActive"
-                    v-on:click="createArchive">{{ lang.btn.submit }}
-            </button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
-        </div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
+          <v-btn color="blue darken-1" flat v-bind:disabled="!submitActive" v-on:click="createArchive">{{ lang.btn.submit }}</v-btn>
+        </v-card-actions>
     </div>
 </template>
 

@@ -1,33 +1,49 @@
 <template>
-  <div class="fm d-flex flex-column"
+  <v-layout column fill-height md-finder
        v-bind:class="{ 'fm-full-screen': fullScreen }">
+       <v-flex xs12>
     <navbar></navbar>
-    <div class="fm-body">
+       </v-flex>
+    <v-flex xs12>
+        <v-flex xs12>
       <notification></notification>
       <context-menu></context-menu>
+        </v-flex>
+      <v-layout row fill-width>
       <modal v-if="showModal"></modal>
       <template v-if="windowsConfig === 1">
         <left-manager class="col" manager="left"></left-manager>
       </template>
       <template v-else-if="windowsConfig === 2">
-        <folder-tree class="col-4 col-md-3"></folder-tree>
-        <left-manager class="col-8 col-md-9" manager="left"></left-manager>
+        <v-flex xs4>
+        <folder-tree></folder-tree>
+        </v-flex>
+        <v-flex xs8>
+        <left-manager manager="left"></left-manager>
+        </v-flex>
       </template>
       <template v-else-if="windowsConfig === 3">
-        <left-manager class="col-12 col-sm-6"
+        <v-flex xs6>
+        <left-manager
                       manager="left"
                       v-on:click.native="selectManager('left')"
                       v-on:contextmenu.native="selectManager('left')">
         </left-manager>
-        <right-manager class="col-12 col-sm-6"
+        </v-flex>
+        <v-flex xs6>
+        <right-manager
                        manager="right"
                        v-on:click.native="selectManager('right')"
                        v-on:contextmenu.native="selectManager('right')">
         </right-manager>
+        </v-flex>
       </template>
-    </div>
+      </v-layout>
+    </v-flex>
+    <v-flex xs12>
     <info-block></info-block>
-  </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -178,6 +194,10 @@ export default {
 
 <style lang="scss">
   @import "~plyr/src/sass/plyr.scss";
+  .md-finder {
+    background: #f0f0f0;
+    position: relative;
+  }
   .fm {
     position: relative;
     height: 100%;
@@ -189,7 +209,7 @@ export default {
     }
 
     &:-webkit-full-screen {
-      background-color: white;
+      background-color: rgb(53, 34, 34);
     }
 
     &:fullscreen {

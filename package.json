@@ -1,6 +1,6 @@
 {
   "name": "md-vue-laravel-file-manager",
-  "version": "2.3.4",
+  "version": "2.5.17",
   "description": "File manager for Laravel",
   "keywords": [
     "laravel",
@@ -24,7 +24,8 @@
     "plyr": "^3.4.7",
     "vue": "^2.5.17",
     "vue-codemirror": "^4.0.5",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuetify": "^1.5.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",

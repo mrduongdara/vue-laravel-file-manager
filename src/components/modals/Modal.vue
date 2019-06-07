@@ -1,14 +1,12 @@
 <template>
-    <transition name="fm-modal">
-        <div class="fm-modal" ref="fmModal" v-on:click="hideModal">
-            <div class="modal-dialog"
-                 role="document"
-                 v-bind:class="modalSize"
+    <v-layout row justify-center>
+      <v-dialog name="fm-modal" v-model="dialog" ref="fmModal" persistent max-width="600" v-bind:class="modalSize"
                  v-on:click.stop>
-                <component v-bind:is="modalName"></component>
-            </div>
-        </div>
-    </transition>
+        <v-card>
+          <component v-bind:is="modalName"></component>
+        </v-card>
+      </v-dialog>
+    </v-layout>
 </template>
 
 <script>
@@ -80,6 +78,11 @@ export default {
       this.$store.commit('fm/modal/clearModal');
     },
   },
+  data () {
+    return {
+      dialog: true
+    }
+  }
 };
 </script>
 

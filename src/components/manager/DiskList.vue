@@ -1,14 +1,13 @@
 <template>
     <div class="fm-disk-list">
-        <ul class="list-inline">
-            <li class="list-inline-item" v-for="(disk, index) in disks" v-bind:key="index">
-                <span class="badge"
-                      v-on:click="selectDisk(disk)"
-                      v-bind:class="[disk === selectedDisk ? 'badge-secondary' : 'badge-light']">
-                    <i class="material-icons">storage</i> {{ disk }}
-                </span>
-            </li>
-        </ul>
+      <v-btn
+        outline
+        v-for="(disk, index) in disks" v-bind:key="index"
+              v-on:click="selectDisk(disk)"
+              v-bind:class="[disk === selectedDisk ? 'badge-secondary' : 'badge-light']"
+      >
+            {{ disk }} <v-icon right dark>storage</v-icon>
+      </v-btn>
     </div>
 </template>
 

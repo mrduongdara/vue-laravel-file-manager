@@ -1,12 +1,9 @@
 <template>
     <div class="modal-content fm-modal-clipboard">
-        <div class="modal-header">
-            <h5 class="modal-title">{{ lang.clipboard.title }}</h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+        <v-card-title class="headline">
+            {{ lang.clipboard.title }}
+        </v-card-title>
+        <v-card-text>
             <template v-if="clipboard.type">
                 <div class="d-flex justify-content-between">
                     <div class="w-75 text-truncate">
@@ -16,7 +13,7 @@
                     </div>
                     <div class="text-right text-muted">
                         <span v-bind:title="`${lang.clipboard.actionType} - ${lang.clipboard[clipboard.type]}`">
-                            <i v-if="clipboard.type === 'copy'" class="material-icons">copy</i>
+                            <i v-if="clipboard.type === 'copy'" class="material-icons">content_copy</i>
                             <i v-else class="material-icons">content_cut</i>
                         </span>
                     </div>
@@ -31,11 +28,11 @@
                         </span>
                     </div>
                     <div class="text-right">
-                        <button type="button" class="close"
+                        <v-btn flat icon
                                 v-bind:title="lang.btn.delete"
                                 v-on:click="deleteItem('directories', dir.path)">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </v-btn>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between"
@@ -47,24 +44,24 @@
                         </span>
                     </div>
                     <div class="text-right">
-                        <button type="button" class="close"
+                        <v-btn flat icon
                                 v-bind:title="lang.btn.delete"
                                 v-on:click="deleteItem('files', file.path)">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </v-btn>
                     </div>
                 </div>
             </template>
             <template v-else>
                 <span>{{ lang.clipboard.none }}</span>
             </template>
-        </div>
+        </v-card-text>
         <div class="modal-footer">
-            <button class="btn btn-danger"
+            <v-btn flat icon class="red"
                     v-bind:disabled="!clipboard.type"
                     v-on:click="resetClipboard">{{ lang.btn.clear }}
-            </button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
+            </v-btn>
+            <v-btn flat icon class="btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
         </div>
     </div>
 </template>

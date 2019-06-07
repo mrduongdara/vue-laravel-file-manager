@@ -1,23 +1,20 @@
 <template>
     <div class="modal-content fm-modal-delete">
-        <div class="modal-header">
-            <h5 class="modal-title">{{ lang.modal.delete.title }}</h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+        <v-card-title class="headline">
+            {{ lang.modal.delete.title }}
+        </v-card-title>
+        <v-card-text>
             <div v-if="selectedItems.length">
                 <selected-file-list></selected-file-list>
             </div>
             <div v-else>
                 <span class="text-danger">{{ lang.modal.delete.noSelected }}</span>
             </div>
-        </div>
+        </v-card-text>
         <div class="modal-footer">
-            <button class="btn btn-danger" v-on:click="deleteItems">{{ lang.modal.delete.title }}
-            </button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
+            <v-btn flat icon class="red" v-on:click="deleteItems">{{ lang.modal.delete.title }}
+            </v-btn>
+            <v-btn flat icon class="btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
         </div>
     </div>
 </template>

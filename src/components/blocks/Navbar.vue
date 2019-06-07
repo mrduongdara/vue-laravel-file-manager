@@ -1,110 +1,98 @@
 <template>
-    <div class="fm-navbar mb-3">
-        <div class="row justify-content-between">
-            <div class="col-auto">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
+    <v-layout finder-toolbar>
+            <v-flex s6>
+                <div class="left" role="group">
+                    <v-btn flat icon outline
                             v-bind:disabled="backDisabled"
                             v-bind:title="lang.btn.back"
                             v-on:click="historyBack()">
-                        <i class="material-icons fa-step-backward"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>keyboard_arrow_left</v-icon>
+                    </v-btn>
+                    <v-btn flat icon outline
                             v-bind:disabled="forwardDisabled"
                             v-bind:title="lang.btn.forward"
                             v-on:click="historyForward()">
-                        <i class="material-icons fa-step-forward"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>keyboard_arrow_right</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="green"
                             v-on:click="refreshAll()"
                             v-bind:title="lang.btn.refresh">
-                        <i class="material-icons fa-sync-alt"></i>
-                    </button>
+                        <v-icon>sync</v-icon>
+                    </v-btn>
                 </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
+                <div class="left" role="group">
+                    <v-btn flat icon class="grey"
                             v-on:click="showModal('NewFile')"
                             v-bind:title="lang.btn.file">
-                        <i class="material-icons fa-file"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>insert_drive_file</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="amber"
                             v-on:click="showModal('NewFolder')"
                             v-bind:title="lang.btn.folder">
-                        <i class="material-icons fa-folder"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>folder</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="light-blue"
                             disabled
                             v-if="uploading"
                             v-bind:title="lang.btn.upload">
-                        <i class="material-icons fa-upload"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>file_upload</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="light-blue"
                             v-else
                             v-on:click="showModal('Upload')"
                             v-bind:title="lang.btn.upload">
-                        <i class="material-icons fa-upload"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>file_upload</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="red"
                             v-bind:disabled="!isAnyItemSelected"
                             v-on:click="showModal('Delete')"
                             v-bind:title="lang.btn.delete">
-                        <i class="material-icons fa-trash-alt"></i>
-                    </button>
+                        <v-icon>delete</v-icon>
+                    </v-btn>
                 </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
+                <div class="left" role="group">
+                    <v-btn flat icon color="cyan"
                             v-bind:disabled="!isAnyItemSelected"
                             v-bind:title="lang.btn.copy"
                             v-on:click="toClipboard('copy')">
-                        <i class="material-icons fa-copy"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>content_copy</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="cyan"
                             v-bind:disabled="!isAnyItemSelected"
                             v-bind:title="lang.btn.cut"
                             v-on:click="toClipboard('cut')">
-                        <i class="material-icons fa-cut"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary"
+                        <v-icon>content_cut</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="cyan"
                             v-bind:disabled="!clipboardType"
                             v-bind:title="lang.btn.paste"
                             v-on:click="paste">
-                        <i class="material-icons fa-paste"></i>
-                    </button>
+                        <v-icon>content_paste</v-icon>
+                    </v-btn>
                 </div>
-            </div>
-            <div class="col-auto text-right">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
-                            v-bind:class="[viewType === 'table' ? 'active' : '']"
-                            v-on:click="selectView('table')"
-                            v-bind:title="lang.btn.table">
-                        <i class="material-icons fa-th-list"></i>
-                    </button>
-                    <button role="button" class="btn btn-secondary"
-                            v-bind:class="[viewType === 'grid' ? 'active' : '']"
-                            v-on:click="selectView('grid')"
-                            v-bind:title="lang.btn.grid">
-                        <i class="material-icons fa-th"></i>
-                    </button>
-                </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
-                            v-bind:title="lang.btn.fullScreen"
-                            v-bind:class="{ active: fullScreen }"
-                            v-on:click="screenToggle">
-                        <i class="material-icons fa-expand-arrows-alt"></i>
-                    </button>
-                </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary"
-                            v-bind:title="lang.btn.about"
-                            v-on:click="showModal('About')">
-                        <i class="material-icons fa-question"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </v-flex>
+            <v-flex s6 text-sm-right>
+                <v-btn flat icon outline
+                        v-bind:class="[viewType === 'table' ? 'active' : '']"
+                        v-on:click="selectView('table')"
+                        v-bind:title="lang.btn.table">
+                    <v-icon>format_list_bulleted</v-icon>
+                </v-btn>
+                <v-btn flat icon role="button" outline
+                        v-bind:class="[viewType === 'grid' ? 'active' : '']"
+                        v-on:click="selectView('grid')"
+                        v-bind:title="lang.btn.grid">
+                    <v-icon>view_comfy</v-icon>
+                </v-btn>
+            
+                <v-btn flat icon outline
+                        v-bind:title="lang.btn.fullScreen"
+                        v-bind:class="{ active: fullScreen }"
+                        v-on:click="screenToggle">
+                    <v-icon>fullscreen</v-icon>
+                </v-btn>
+            </v-flex>
+    </v-layout>
 </template>
 
 <script>
@@ -283,9 +271,13 @@ export default {
 </script>
 
 <style lang="scss">
+.finder-toolbar {
+  background: #ffffff;
+  border-bottom: 1px solid #dddddd;
+}
     .fm-navbar {
 
-        .btn-group {
+        .left {
             margin-right: 0.4rem;
         }
     }

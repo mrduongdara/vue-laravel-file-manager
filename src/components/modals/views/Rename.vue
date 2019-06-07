@@ -1,12 +1,9 @@
 <template>
     <div class="modal-content fm-modal-rename">
-        <div class="modal-header">
-            <h5 class="modal-title">{{ lang.modal.rename.title }}</h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+        <v-card-title class="headline">
+            {{ lang.modal.rename.title }}
+        </v-card-title>
+        <v-card-text>
             <div class="form-group">
                 <label for="fm-input-rename">{{ lang.modal.rename.fieldName }}</label>
                 <input type="text" class="form-control" id="fm-input-rename"
@@ -20,14 +17,12 @@
                     {{ fileExist ? ` - ${lang.modal.rename.fileExist}` : ''}}
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-info"
-                    v-bind:disabled="submitDisable"
-                    v-on:click="rename">{{ lang.btn.submit }}
-            </button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
-        </div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
+          <v-btn color="blue darken-1" flat v-bind:disabled="!submitActive" v-on:click="rename">{{ lang.btn.submit }}</v-btn>
+        </v-card-actions>
     </div>
 </template>
 

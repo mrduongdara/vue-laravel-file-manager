@@ -1,9 +1,12 @@
 <template>
     <div class="fm-tree">
         <div class="fm-tree-disk sticky-top">
-            <i class="material-icons">storage</i> {{ selectedDisk }}
+          <v-btn outline disabled>
+            {{ selectedDisk }} <v-icon right>storage</v-icon>
+          </v-btn>
         </div>
         <branch v-bind:parent-id="0"></branch>
+        <v-spacer></v-spacer>
     </div>
 </template>
 
@@ -28,23 +31,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .fm-tree {
-        overflow: auto;
-        border-right: 1px solid #6d757d;
-
-        & > .fm-folders-tree {
-            padding-left: 0.2rem;
-        }
-
-        .fm-tree-disk {
-            padding: 0.2rem 0.3rem;
-            margin-bottom: 0.3rem;
-            background-color: white;
-        }
-
-        .fm-tree-disk > i {
-            padding-left: 0.2rem;
-            padding-right: 0.5rem;
-        }
-    }
+    
 </style>

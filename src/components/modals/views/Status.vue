@@ -1,12 +1,9 @@
 <template>
     <div class="modal-content fm-modal-errors">
-        <div class="modal-header">
-            <h5 class="modal-title">{{ lang.modal.status.title }}</h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+        <v-card-title class="headline">
+            {{ lang.modal.status.title }}
+        </v-card-title>
+        <v-card-text>
             <div v-if="errors.length">
                 <ul class="list-unstyled">
                     <li v-for="(item, index) in errors" v-bind:key="index">
@@ -17,12 +14,12 @@
             <div v-else>
                 <span>{{ lang.modal.status.noErrors }}</span>
             </div>
-        </div>
+        </v-card-text>
         <div class="modal-footer">
-            <button class="btn btn-danger"
+            <v-btn flat icon class="red"
                     v-bind:disabled="!errors.length"
-                    v-on:click="clearErrors">{{ lang.btn.clear }}</button>
-            <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
+                    v-on:click="clearErrors">{{ lang.btn.clear }}</v-btn>
+            <v-btn flat icon class="btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
         </div>
     </div>
 </template>

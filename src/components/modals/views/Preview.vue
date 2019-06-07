@@ -1,14 +1,11 @@
 <template>
     <div class="modal-content fm-modal-preview">
-        <div class="modal-header">
-            <h5 class="modal-title w-75 text-truncate">
+        <v-card-title class="headline">
+            
                 {{ showCropperModule ? lang.modal.cropper.title : lang.modal.preview.title }}
                 <small class="text-muted pl-3">{{ selectedItem.basename }}</small>
-            </h5>
-            <button type="button" class="close" aria-label="Close" v-on:click="hideModal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+            
+        </v-card-title>
         <div class="modal-body text-center">
             <template v-if="showCropperModule">
                 <cropper-module v-bind:imgUrl="imgUrl"
@@ -23,13 +20,13 @@
         </div>
         <div v-if="showFooter" class="d-flex justify-content-between">
             <span class="d-block">
-                <button class="btn btn-info"
+                <v-btn flat class=""
                         v-bind:title="lang.modal.cropper.title" v-on:click="showCropperModule = true">
                     <i class="material-icons">crop</i>
-                </button>
+                </v-btn>
             </span>
             <span class="d-block">
-                <button class="btn btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</button>
+                <v-btn flat class="btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
             </span>
         </div>
     </div>

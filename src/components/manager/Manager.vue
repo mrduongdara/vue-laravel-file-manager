@@ -1,5 +1,5 @@
 <template>
-    <div class="fm-content d-flex flex-column">
+    <div class="fm-content">
         <disk-list v-bind:manager="manager"></disk-list>
         <breadcrumb v-bind:manager="manager"></breadcrumb>
         <div class="fm-content-body">
@@ -46,6 +46,7 @@ export default {
 
         .fm-content-body {
             overflow: auto;
+            padding: 0 8px;
         }
     }
 </style>
