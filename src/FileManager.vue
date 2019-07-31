@@ -5,9 +5,9 @@
     <navbar></navbar>
        </v-flex>
     <v-flex xs12>
+      <context-menu></context-menu>
         <v-flex xs12>
       <notification></notification>
-      <context-menu></context-menu>
         </v-flex>
       <v-layout row fill-width>
       <modal v-if="showModal"></modal>

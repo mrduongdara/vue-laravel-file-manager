@@ -6,8 +6,7 @@
          class="fm-context-menu"
          tabindex="-1">
         <ul v-for="(group, index) in menu"
-            v-bind:key="`g-${index}`"
-            class="list-unstyled">
+            v-bind:key="`g-${index}`" >
             <li v-for="(item, index) in group"
                 v-bind:key="`i-${index}`"
                 v-if="showMenuItem(item.name)"
@@ -21,6 +20,7 @@
 
 <script>
 /* eslint-disable no-param-reassign */
+
 import EventBus from './../../eventBus';
 import translate from '../../mixins/translate';
 import contextMenu from './mixins/contextMenu';
@@ -81,7 +81,6 @@ export default {
     setMenu(top, left) {
       // get parent el (.fm-body)
       const el = this.$refs.contextMenu.parentNode;
-
       // get parent el size
       const elSize = el.getBoundingClientRect();
 

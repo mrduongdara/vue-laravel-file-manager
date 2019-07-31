@@ -29,6 +29,11 @@
                 <v-btn flat class="btn-default" v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
             </span>
         </div>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat v-on:click="hideModal">{{ lang.btn.cancel }}</v-btn>
+        </v-card-actions>
     </div>
 </template>
 
